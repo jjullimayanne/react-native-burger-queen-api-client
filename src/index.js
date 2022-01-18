@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
-import SignIn from "../src/pages/signIn"
-import SignUp from "../src/pages/signIn"
+import Login from "./pages/login"
+import SignUp from "./pages/login"
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -10,7 +10,7 @@ export default function App(){
     return (
  <NavigationContainer>
     <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
      </Stack.Navigator>
  </NavigationContainer>
