@@ -15,34 +15,6 @@ export default function Login({ navigation}){
 
     function loginBtn(e) {
         e.preventDefault();
-        if (email === '' || password === '') {
-          setVisibleInput(true);
-        } else {
-          fetch('https://lab-api-bq.herokuapp.com/auth', {
-            method: 'POST',
-            headers: {
-              accept: 'application/json',
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `email=${email}&password=${password}`,
-          })
-            .then((response) => response.json())
-            .then((json) => {
-              const { token } = json;
-              const { id } = json;
-              const tokenUser = localStorage.setItem('token', token);
-              const idUser = localStorage.setItem('id', id);
-              console.log(token)
-    
-              if (tokenUser !== null && idUser !== null && json.role === 'cozinha') {
-                kitchen();
-              } else if (tokenUser !== null && idUser !== null && json.role === 'salao') {
-                saloon();
-              } else {
-                setIsModalVisible(true);
-              }
-            });
-        }
       }
   
     
@@ -68,7 +40,7 @@ export default function Login({ navigation}){
 
             <Button
             title="Login"
-            onPress={ () => navigation.navigate("SignUp")}
+            onPress={ () => navigation.navigate("Orders")}
             >Login</Button>
         </View>
     </ImageBackground>
